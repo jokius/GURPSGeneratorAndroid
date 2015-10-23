@@ -2,5 +2,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <integer name="database_version">1</integer>
     <string name="database_name">gurps</string>
-    <string name="package_name">ru.gurps.generator.android</string>
+    <string name="package_name">ru.gurps.generator.android.db.migrations</string>
 </resources>
