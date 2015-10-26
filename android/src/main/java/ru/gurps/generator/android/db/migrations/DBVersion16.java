@@ -12,7 +12,7 @@ public class DBVersion16 extends AbstractMigration {
                 "modifierId integer not null," +
                 "featureId integer not null," +
                 "cost integer not null," +
-                "level integer not null." +
+                "level integer not null," +
                 "foreign key (characterId) references Characters (id)," +
                 "foreign key (modifierId) references Modifiers (id)," +
                 "foreign key (featureId) references Features (id)" +
