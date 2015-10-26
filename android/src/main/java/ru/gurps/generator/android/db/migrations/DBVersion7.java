@@ -14,7 +14,7 @@ public class DBVersion7 extends AbstractMigration {
     public void up() {
         execSQL("create table Techniques" +
                 "(" +
-                "_id integer auto_increment primary key not null," +
+                "_id integer primary key," +
                 "name varchar(255) not null," +
                 "nameEn varchar(255)," +
                 "complexity integer not null," +

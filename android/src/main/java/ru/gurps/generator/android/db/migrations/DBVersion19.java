@@ -7,7 +7,7 @@ public class DBVersion19 extends AbstractMigration {
     public void up() {
         execSQL("create table CharactersSpecializations" +
                 "(" +
-                "_id integer auto_increment primary key not null," +
+                "_id integer primary key," +
                 "characterId integer not null," +
                 "specializationId integer not null," +
                 "cost integer not null," +

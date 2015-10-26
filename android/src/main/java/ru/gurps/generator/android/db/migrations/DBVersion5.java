@@ -14,7 +14,7 @@ public class DBVersion5 extends AbstractMigration {
     public void up() {
         execSQL("create table Specializations" +
                 "(" +
-                "_id integer auto_increment primary key not null," +
+                "_id integer primary key," +
                 "skillId integer not null," +
                 "name varchar(255) not null," +
                 "nameEn varchar(255)," +
