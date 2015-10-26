@@ -8,8 +8,8 @@ public class Character extends Model {
     public long _id;
     public String player;
     public String name;
-    public String currentPoints;
-    public String maxPoints;
+    public Integer currentPoints;
+    public Integer maxPoints;
     public Integer st = 10;
     public Integer dx = 10;
     public Integer iq = 10;
@@ -38,8 +38,8 @@ public class Character extends Model {
         super(context);
     }
 
-    public Character(Context context, String player, String name, String currentPoints,
-                     String maxPoints, Integer st, Integer dx, Integer iq, Integer ht, Integer hp,
+    public Character(Context context, String player, String name, Integer currentPoints,
+                     Integer maxPoints, Integer st, Integer dx, Integer iq, Integer ht, Integer hp,
                      Integer will, Integer per, Integer fp, Double bs, Integer move, Integer sm,
                      Integer growth, Integer weight, Integer age, Integer tl, Integer tlCost,
                      Integer head, Integer torse, Integer arm, Integer leg, Integer hand,
