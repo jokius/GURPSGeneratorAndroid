@@ -38,39 +38,9 @@ public class Character extends Model {
         super(context);
     }
 
-    public Character(Context context, String player, String name, Integer currentPoints,
-                     Integer maxPoints, Integer st, Integer dx, Integer iq, Integer ht, Integer hp,
-                     Integer will, Integer per, Integer fp, Double bs, Integer move, Integer sm,
-                     Integer growth, Integer weight, Integer age, Integer tl, Integer tlCost,
-                     Integer head, Integer torse, Integer arm, Integer leg, Integer hand,
-                     Integer foot, Boolean noFineManipulators) {
+    public Character(Context context, String name, Integer maxPoints) {
         super(context);
-        this.player = player;
         this.name = name;
-        this.currentPoints = currentPoints;
         this.maxPoints = maxPoints;
-        this.st = st;
-        this.dx = dx;
-        this.iq = iq;
-        this.ht = ht;
-        this.hp = hp;
-        this.will = will;
-        this.per = per;
-        this.fp = fp;
-        this.bs = bs;
-        this.move = move;
-        this.sm = sm;
-        this.growth = growth;
-        this.weight = weight;
-        this.age = age;
-        this.tl = tl;
-        this.tlCost = tlCost;
-        this.head = head;
-        this.torse = torse;
-        this.arm = arm;
-        this.leg = leg;
-        this.hand = hand;
-        this.foot = foot;
-        this.noFineManipulators = noFineManipulators;
     }
 }
