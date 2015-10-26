@@ -27,7 +27,7 @@ public class DBVersion13 extends AbstractMigration {
     }
 
     public void down() {
-        execSQL("DROP TABLE CharactersFeatures");
+        execSQL("DROP TABLE CharactersAddonsFix down");
     }
 
 }
