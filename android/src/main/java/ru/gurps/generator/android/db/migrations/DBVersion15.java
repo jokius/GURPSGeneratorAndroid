@@ -7,7 +7,7 @@ public class DBVersion15 extends AbstractMigration {
     public void up() {
         execSQL("create table CharactersLanguages" +
                 "(" +
-                "_id integer auto_increment primary key not null," +
+                "_id integer primary key," +
                 "characterId integer not null," +
                 "languageId integer not null," +
                 "spoken integer default 0 not null," +

@@ -14,7 +14,7 @@ public class DBVersion2 extends AbstractMigration {
     public void up() {
         execSQL("CREATE TABLE Addons" +
                 "(" +
-                "_id integer auto_increment primary key not null," +
+                "_id integer primary key," +
                 "featureId integer," +
                 "name varchar(255)," +
                 "nameEn varchar(255)," +

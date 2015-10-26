@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="select_color">#5f4d8cba</color>
+    <color name="have_points">#ff13863e</color>
+    <color name="not_have_points">#ffc1000d</color>
+</resources>

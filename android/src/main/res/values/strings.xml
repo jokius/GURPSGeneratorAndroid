@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">GURPS Generator</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="character_name">Имя персонажа</string>
+    <string name="max_points">Количество очков</string>
+    <string name="create">Создать</string>
+    <string name="delete">Удалить</string>
+    <string name="select">Выбрать</string>
+    <string name="delete_single">Удален</string>
 </resources>

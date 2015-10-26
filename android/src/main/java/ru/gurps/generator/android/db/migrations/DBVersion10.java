@@ -7,7 +7,7 @@ public class DBVersion10 extends AbstractMigration {
     public void up() {
         execSQL("create table Languages" +
                 "(" +
-                "_id integer auto_increment primary key not null," +
+                "_id integer primary key," +
                 "name varchar(255) not null" +
                 ");");
     }

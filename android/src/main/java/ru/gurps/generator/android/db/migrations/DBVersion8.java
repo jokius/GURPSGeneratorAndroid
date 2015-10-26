@@ -7,7 +7,7 @@ public class DBVersion8 extends AbstractMigration {
     public void up() {
         execSQL("create table Characters" +
                 "(" +
-                "_id integer auto_increment primary key not null," +
+                "_id integer primary key," +
                 "name varchar(255)," +
                 "currentPoints integer default 0," +
                 "maxPoints integer," +

@@ -1,6 +1,73 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="${relativePackage}.${activityClass}">
-</LinearLayout>
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/character_name"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/character_name"/>
+
+    <EditText
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/max_points"
+        android:layout_below="@+id/character_name"
+        android:layout_alignLeft="@+id/character_name"
+        android:layout_alignStart="@+id/character_name"
+        android:hint="@string/max_points"/>
+
+    <Button
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:text="@string/create"
+        android:id="@+id/create"
+        android:layout_below="@+id/max_points"
+        android:layout_alignLeft="@+id/max_points"
+        android:layout_alignStart="@+id/max_points"
+        android:enabled="false"
+        android:onClick="onCreate"/>
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/create"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/delete"/>
+
+    <Button
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:text="@string/delete"
+        android:id="@+id/delete"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/create"
+        android:layout_toLeftOf="@+id/create"
+        android:enabled="false"
+        android:onClick="onDelete"/>
+
+    <Button
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:text="@string/select"
+        android:id="@+id/select"
+        android:layout_alignTop="@+id/delete"
+        android:layout_toRightOf="@+id/create"
+        android:layout_toEndOf="@+id/create"
+        android:enabled="false"
+        android:onClick="onSelect"/>
+</RelativeLayout>

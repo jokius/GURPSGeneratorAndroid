@@ -14,7 +14,7 @@ public class DBVersion3 extends AbstractMigration {
     public void up() {
         execSQL("CREATE TABLE Modifiers" +
                 "(" +
-                "_id integer auto_increment primary key not null," +
+                "_id integer primary key," +
                 "name varchar(255) not null," +
                 "nameEn varchar(255)," +
                 "cost integer not null," +

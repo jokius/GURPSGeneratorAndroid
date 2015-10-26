@@ -14,7 +14,7 @@ public class DBVersion6 extends AbstractMigration {
     public void up() {
         execSQL("create table Spells" +
                 "(" +
-                "_id integer auto_increment primary key not null," +
+                "_id integer primary key," +
                 "school integer," +
                 "name varchar(255)," +
                 "nameEn varchar(255)," +
