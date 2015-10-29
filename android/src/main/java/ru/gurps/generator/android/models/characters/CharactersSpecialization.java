@@ -5,7 +5,7 @@ import android.content.Context;
 import ru.gurps.generator.android.db.Model;
 
 public class CharactersSpecialization extends Model {
-    public long _id;
+    public Long _id;
     public Integer characterId;
     public Integer specializationId;
     public Integer cost;

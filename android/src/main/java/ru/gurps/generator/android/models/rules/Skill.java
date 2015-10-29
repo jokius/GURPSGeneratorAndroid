@@ -5,7 +5,7 @@ import android.content.Context;
 import ru.gurps.generator.android.db.Model;
 
 public class Skill extends Model {
-    public long _id;
+    public Long _id;
     public String name;
     public String nameEn;
     public Integer skillType;
@@ -25,7 +25,7 @@ public class Skill extends Model {
         super(context);
     }
 
-    public Skill(Context context, long _id, String name, String nameEn, Integer skillType,
+    public Skill(Context context, Long _id, String name, String nameEn, Integer skillType,
                  Integer complexity, String defaultUse, String demands, String description,
                  String modifiers, Boolean twoHands, Boolean parry, Integer parryBonus,
                  Integer cost, Integer level, Boolean add) {

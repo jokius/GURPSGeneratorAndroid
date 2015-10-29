@@ -5,7 +5,7 @@ import android.content.Context;
 import ru.gurps.generator.android.db.Model;
 
 public class Modifier extends Model {
-    public long _id;
+    public Long _id;
     public String name;
     public String nameEn;
     public Integer cost;
@@ -19,7 +19,7 @@ public class Modifier extends Model {
         super(context);
     }
 
-    public Modifier(Context context, long _id, String name, String nameEn, Integer cost,
+    public Modifier(Context context, Long _id, String name, String nameEn, Integer cost,
                     String description, Integer maxLevel, Boolean combat,
                     Boolean improving, Integer level) {
         super(context);

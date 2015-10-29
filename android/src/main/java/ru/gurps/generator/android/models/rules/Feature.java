@@ -5,7 +5,7 @@ import android.content.Context;
 import ru.gurps.generator.android.db.Model;
 
 public class Feature extends Model {
-    public long _id;
+    public Long _id;
     public Boolean advantage;
     public String name;
     public String nameEn;
@@ -23,7 +23,7 @@ public class Feature extends Model {
         super(context);
     }
 
-    public Feature(Context context, long _id, Boolean advantage, String name, String nameEn,
+    public Feature(Context context, Long _id, Boolean advantage, String name, String nameEn,
                    String featureType, Integer cost, String description, Integer oldLevel,
                    Integer maxLevel, Boolean psi, Boolean cybernetic, Boolean add,
                    Boolean modifier) {

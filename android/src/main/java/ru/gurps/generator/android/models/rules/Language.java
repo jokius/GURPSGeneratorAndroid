@@ -5,7 +5,7 @@ import android.content.Context;
 import ru.gurps.generator.android.db.Model;
 
 public class Language extends Model {
-    public long _id;
+    public Long _id;
     public String name;
     @Ignore public Integer spoken = 0;
     @Ignore public Integer written = 0;

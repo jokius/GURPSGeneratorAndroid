@@ -5,7 +5,7 @@ import android.content.Context;
 import ru.gurps.generator.android.db.Model;
 
 public class Technique extends Model {
-    public long _id;
+    public Long _id;
     public String name;
     public String nameEn;
     public Integer complexity;
@@ -20,7 +20,7 @@ public class Technique extends Model {
         super(context);
     }
 
-    public Technique(Context context, long _id, String name, String nameEn, Integer complexity,
+    public Technique(Context context, Long _id, String name, String nameEn, Integer complexity,
                      String defaultUse, String demands, String description, Integer cost,
                      Integer level, Boolean add) {
         super(context);

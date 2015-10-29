@@ -5,7 +5,7 @@ import android.content.Context;
 import ru.gurps.generator.android.db.Model;
 
 public class Cultura extends Model {
-    public long _id;
+    public Long _id;
     public String name;
     @Ignore public Integer cost = 0;
     @Ignore public Boolean add = false;

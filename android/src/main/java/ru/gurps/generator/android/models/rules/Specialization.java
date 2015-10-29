@@ -5,7 +5,7 @@ import android.content.Context;
 import ru.gurps.generator.android.db.Model;
 
 public class Specialization extends Model {
-    public long _id;
+    public Long _id;
     public Integer skillId;
     public String name;
     public String nameEn;
@@ -25,7 +25,7 @@ public class Specialization extends Model {
         super(context);
     }
 
-    public Specialization(Context context, long _id, Integer skillId, String name, String nameEn,
+    public Specialization(Context context, Long _id, Integer skillId, String name, String nameEn,
                           Integer skillType, Integer complexity, String defaultUse, String demands,
                           String description, String modifiers, Boolean parry, Integer parryBonus,
                           Integer cost, Integer level, Boolean add) {
