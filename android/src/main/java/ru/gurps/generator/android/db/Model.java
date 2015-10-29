@@ -54,6 +54,11 @@ public class Model extends DatabaseHelper {
         return true;
     }
 
+    public boolean update_single(String key, Object value){
+        db().execSQL("UPDATE " + table + " SET " + key + "='" + value + "' WHERE _id=" + id());
+        return true;
+    }
+
     private ContentValues cv() {
         ContentValues cv = new ContentValues();
         for (Field field : this.getClass().getDeclaredFields()) {
