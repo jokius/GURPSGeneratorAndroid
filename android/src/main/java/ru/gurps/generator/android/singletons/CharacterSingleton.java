@@ -7,7 +7,6 @@ public class CharacterSingleton {
     private Character character;
 
     public static CharacterSingleton getInstance() {
-        if(mInstance == null) mInstance = new CharacterSingleton();
         return mInstance;
     }
 
