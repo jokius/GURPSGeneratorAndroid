@@ -15,13 +15,9 @@ import ru.gurps.generator.android.models.Character;
 
 public class CharactersAdapter extends ArrayAdapter<Character> {
     private Context mContext;
-    private ArrayList<Character> characters;
-
     public CharactersAdapter(Context mContext, ArrayList<Character> characters){
         super(mContext, android.R.layout.simple_list_item_2, characters);
         this.mContext = mContext;
-        this.characters = characters;
-
     }
 
     @Override
@@ -34,27 +30,27 @@ public class CharactersAdapter extends ArrayAdapter<Character> {
             convertView = inflater.inflate(android.R.layout.simple_list_item_2, parent, false);
             holder = new ViewHolder();
             holder.name = (TextView) convertView.findViewById(android.R.id.text1);
-            holder.max_points = (TextView) convertView.findViewById(android.R.id.text2);
+            holder.currentPoints = (TextView) convertView.findViewById(android.R.id.text2);
             convertView.setTag(holder);
         }
         else holder = (ViewHolder) convertView.getTag();
 
         Character character = getItem(position);
         holder.name.setText(character.name);
-        holder.max_points.setText(String.format("%d", character.maxPoints));
+        holder.currentPoints.setText(String.format("%d", character.currentPoints));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if(character.currentPoints <= character.maxPoints)
-                holder.max_points.setTextColor(mContext.getResources()
+                holder.currentPoints.setTextColor(mContext.getResources()
                         .getColor(R.color.have_points, mContext.getTheme()));
-            else holder.max_points.setTextColor(mContext.getResources()
+            else holder.currentPoints.setTextColor(mContext.getResources()
                     .getColor(R.color.not_have_points, mContext.getTheme()));
         }
         else {
             if(character.currentPoints <= character.maxPoints)
-                holder.max_points.setTextColor(mContext.getResources()
+                holder.currentPoints.setTextColor(mContext.getResources()
                         .getColor(R.color.have_points));
-            else holder.max_points.setTextColor(mContext.getResources()
+            else holder.currentPoints.setTextColor(mContext.getResources()
                     .getColor(R.color.not_have_points));
         }
 
@@ -63,6 +59,6 @@ public class CharactersAdapter extends ArrayAdapter<Character> {
 
     static class ViewHolder {
         TextView name;
-        TextView max_points;
+        TextView currentPoints;
     }
 }
