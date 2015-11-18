@@ -39,4 +39,17 @@
 
     <string name="max_points_all">Максимум очков</string>
     <string name="points_use">Использовано очков</string>
+    <string name="name">Название</string>
+    <string name="name_en">Название Англ.</string>
+    <string name="type">Тип</string>
+    <string name="cost">Стоимость</string>
+    <string name="description">Описание</string>
+
+    <!-- Feature types -->
+    <string name="physical_short">Ф</string>
+    <string name="social_short">Соц</string>
+    <string name="mental_short">М</string>
+    <string name="exotic_short">Э</string>
+    <string name="supernatural_short">С</string>
+    <!-- Feature types end -->
 </resources>
