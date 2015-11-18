@@ -5,7 +5,7 @@ import android.content.Context;
 import ru.gurps.generator.android.db.Model;
 
 public class Spell extends Model {
-    public long _id;
+    public Long _id;
     public Integer school;
     public String name;
     public String nameEn;
@@ -28,7 +28,7 @@ public class Spell extends Model {
         super(context);
     }
 
-    public Spell(Context context, long _id, Integer school, String name, String nameEn,
+    public Spell(Context context, Long _id, Integer school, String name, String nameEn,
                  Integer spellType, String description, Integer complexity, Integer cost,
                  Integer maxCost, String needTime, String duration, String maintainingCost,
                  String thing, String createCost, String demands, Integer level, Integer finalCost,

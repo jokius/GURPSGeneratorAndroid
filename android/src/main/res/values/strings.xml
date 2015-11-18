@@ -7,4 +7,36 @@
     <string name="delete">Удалить</string>
     <string name="select">Выбрать</string>
     <string name="delete_single">Удален</string>
+    <string name="no_fine_manipulators">Нет хороших манипуляторов</string>
+    <string name="player_name">Имя игрока</string>
+    <string name="growth">Рост</string>
+    <string name="weight">Вес</string>
+    <string name="age">Возраст</string>
+    <string name="tl_short">ТУ</string>
+    <string name="tl_cost_short">ТУ стоимость</string>
+    <string name="size_modifier">Модификатор размера</string>
+    <string name="strength">Сила</string>
+    <string name="dexterity">Ловкость</string>
+    <string name="intellect">Интелект</string>
+    <string name="health">Здоровье</string>
+    <string name="defaultCharacteristicValue">10</string>
+    <string name="defaultCharacteristicCost">0</string>
+    <string name="health_points">Очки здоровья</string>
+    <string name="will">Воля</string>
+    <string name="perception">Восприятие</string>
+    <string name="fatigue_points">Очки усталости</string>
+    <string name="basic_speed">Базовая скорость</string>
+    <string name="basic_move">Базовое движение</string>
+    <string name="basic_lift">Базовый груз</string>
+    <string name="doge">Уклонение</string>
+    <string name="damage_thrust">Повреждение прямое</string>
+    <string name="damage_swing">Повреждение амплитудное</string>
+
+    <string name="character_params">Параметры персонажа</string>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+    <string name="max_points_all">Максимум очков</string>
+    <string name="points_use">Использовано очков</string>
 </resources>

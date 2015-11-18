@@ -1,6 +1,7 @@
 package ru.gurps.generator.android.activities;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,9 +14,9 @@ import android.widget.Toast;
 import ru.gurps.generator.android.R;
 import ru.gurps.generator.android.adapters.CharactersAdapter;
 import ru.gurps.generator.android.models.Character;
+import ru.gurps.generator.android.singletons.CharacterSingleton;
 
 public class MainActivity extends ListActivity {
-    private Character character;
     EditText character_name;
     EditText max_points;
 
@@ -76,7 +77,7 @@ public class MainActivity extends ListActivity {
     }
 
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        character = (Character) getListAdapter().getItem(position);
+        setCharacter((Character) getListAdapter().getItem(position));
         if (last_view == null) {
             last_view = v;
             default_color = v.getDrawingCacheBackgroundColor();
@@ -91,19 +92,29 @@ public class MainActivity extends ListActivity {
     }
 
     public void onCreate(View view) {
-        character = (Character) new Character(this, character_name.getText().toString(),
-                Integer.parseInt(max_points.getText().toString())).create();
-        Toast.makeText(getApplicationContext(), "Создан " + character.name, Toast.LENGTH_SHORT).show();
+        setCharacter((Character) new Character(this, character_name.getText().toString(),
+                Integer.parseInt(max_points.getText().toString())).create());
+        openCharacter();
     }
 
     public void onSelect(View view) {
-        Toast.makeText(getApplicationContext(), "Выбран " + character.name, Toast.LENGTH_SHORT).show();
+        openCharacter();
     }
 
     public void onDelete(View view) {
+        Character character = CharacterSingleton.getInstance().getCharacter();
         character.delete();
         adapter.remove(character);
         adapter.notifyDataSetChanged();
         Toast.makeText(getApplicationContext(), getResources().getString(R.string.delete_single) + " " + character.name, Toast.LENGTH_SHORT).show();
+    }
+
+    private void openCharacter(){
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+    }
+
+    private void setCharacter(Character c){
+        CharacterSingleton.getInstance().setCharacter(c);
     }
 }

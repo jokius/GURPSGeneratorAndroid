@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimaryDark"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    android:paddingLeft="16dp">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/max_points_all"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/header_text_size" />
+
+        <EditText
+            android:layout_width="@dimen/edit_width"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:id="@+id/editMaxPoints"
+            android:layout_marginLeft="@dimen/menu_item_padding_left"
+            android:textSize="@dimen/header_text_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/points_use"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/header_text_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/currentPoints"
+            android:text="@string/defaultCharacteristicCost"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="@dimen/menu_item_padding_left"
+            android:textSize="@dimen/header_text_size" />
+    </LinearLayout>
+</LinearLayout>

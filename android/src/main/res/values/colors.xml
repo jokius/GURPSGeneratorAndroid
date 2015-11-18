@@ -3,4 +3,7 @@
     <color name="select_color">#5f4d8cba</color>
     <color name="have_points">#ff13863e</color>
     <color name="not_have_points">#ffc1000d</color>
+    <color name="list_background">#000</color>
+    <color name="list_background_pressed">#ccc</color>
+    <color name="drawer_item_color">#fff</color>
 </resources>

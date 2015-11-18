@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="views_array">
+        <item>Параметры персонажа</item>
+        <item>Второй экран</item>
+        <item>Третий экран</item>
+    </string-array>
+</resources>
