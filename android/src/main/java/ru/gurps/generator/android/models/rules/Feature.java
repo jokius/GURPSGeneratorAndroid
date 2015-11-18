@@ -2,6 +2,7 @@ package ru.gurps.generator.android.models.rules;
 
 import android.content.Context;
 
+import ru.gurps.generator.android.R;
 import ru.gurps.generator.android.db.Model;
 
 public class Feature extends Model {
@@ -41,5 +42,18 @@ public class Feature extends Model {
         this.cybernetic = cybernetic;
         this.add = add;
         this.modifier = modifier;
+    }
+
+    public String getFeatureType() {
+        String new_type = featureType;
+        new_type = new_type.replace("[", "");
+        new_type = new_type.replace("]", "");
+        new_type = new_type.replace(",", "/ ");
+        new_type = new_type.replace("1", R.string.physical_short + " ");
+        new_type = new_type.replace("2", R.string.social_short + " ");
+        new_type = new_type.replace("3", R.string.mental_short + " ");
+        new_type = new_type.replace("4", R.string.exotic_short + " ");
+        new_type = new_type.replace("5", R.string.supernatural_short + " ");
+        return new_type;
     }
 }
