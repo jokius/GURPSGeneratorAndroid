@@ -12,7 +12,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import ru.gurps.generator.android.R;
-import ru.gurps.generator.android.activities.character.ParamsActivity;
 import ru.gurps.generator.android.adapters.CharactersAdapter;
 import ru.gurps.generator.android.models.Character;
 import ru.gurps.generator.android.singletons.CharacterSingleton;
@@ -111,7 +110,7 @@ public class MainActivity extends ListActivity {
     }
 
     private void openCharacter(){
-        Intent intent = new Intent(this, ParamsActivity.class);
+        Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 

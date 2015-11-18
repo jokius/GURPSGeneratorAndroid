@@ -16,7 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.character.ParamsActivity" >
+        <activity
+            android:name=".activities.MenuActivity"
+            android:label="@string/character_params"
+            android:parentActivityName=".activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ru.gurps.generator.android.activities.MainActivity" />
         </activity>
     </application>
 
