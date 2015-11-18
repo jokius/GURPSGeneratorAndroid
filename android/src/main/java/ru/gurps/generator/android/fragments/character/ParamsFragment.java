@@ -1,23 +1,31 @@
-package ru.gurps.generator.android.activities.character;
+package ru.gurps.generator.android.fragments.character;
 
-import android.app.Activity;
+
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import ru.gurps.generator.android.R;
+import ru.gurps.generator.android.activities.MenuActivity;
 import ru.gurps.generator.android.helpers.CharacterParamsHelper;
 import ru.gurps.generator.android.helpers.DmgHelper;
 import ru.gurps.generator.android.models.Character;
 import ru.gurps.generator.android.singletons.CharacterSingleton;
 
+public class ParamsFragment extends Fragment {
+    private Character character = CharacterSingleton.getInstance()
+            .getCharacter();
 
-public class ParamsActivity extends Activity {
-    private Character character = CharacterSingleton.getInstance().getCharacter();
+    private View view;
 
     private EditText characterNameEdit;
     private EditText playerNameEdit;
@@ -53,12 +61,19 @@ public class ParamsActivity extends Activity {
     private TextView damageThrust;
     private TextView damageSwing;
 
+    private Toolbar toolbar;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_params);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_params, container, false);
+
+        toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.character_params);
+
         setElements();
         setCharacterParams();
+        return view;
     }
 
     private void setCharacterParams() {
@@ -145,12 +160,10 @@ public class ParamsActivity extends Activity {
                 character.sm = intValue;
                 int oldStCost = Integer.parseInt(stCost.getText().toString());
                 stCost.setText(String.format("%d", CharacterParamsHelper.stCost()));
-//            currentPoints(stCost, oldStCost);
-
+                currentPoints(CharacterParamsHelper.stCost(), oldStCost);
                 int oldHpCost = Integer.parseInt(hpCost.getText().toString());
                 hpCost.setText(String.format("%d", CharacterParamsHelper.hpCost()));
-//            currentPoints(hpCost, oldHpCost);
-                character.save();
+                currentPoints(CharacterParamsHelper.hpCost(), oldHpCost);
             }
         });
     }
@@ -162,12 +175,11 @@ public class ParamsActivity extends Activity {
                 character.noFineManipulators = isChecked;
                 int oldStCost = Integer.parseInt(stCost.getText().toString());
                 stCost.setText(String.format("%d", CharacterParamsHelper.stCost()));
-//                currentPoints(stCost, oldStCost);
+                currentPoints(CharacterParamsHelper.stCost(), oldStCost);
 
                 int oldDxCost = Integer.parseInt(dxCost.getText().toString());
                 dxCost.setText(String.format("%d", CharacterParamsHelper.dxCost()));
-//                currentPoints(dxCost, oldDxCost);
-                character.save();
+                currentPoints(CharacterParamsHelper.dxCost(), oldDxCost);
             }
         });
     }
@@ -192,17 +204,15 @@ public class ParamsActivity extends Activity {
 
                 int oldStCost = Integer.parseInt(stCost.getText().toString());
                 stCost.setText(String.format("%d", CharacterParamsHelper.stCost()));
-//            currentPoints(stCost, oldStCost);
+                currentPoints(CharacterParamsHelper.stCost(), oldStCost);
 
                 int oldHpCost = Integer.parseInt(hpCost.getText().toString());
                 hpCost.setText(String.format("%d", CharacterParamsHelper.hpCost()));
-//            currentPoints(hpCost, oldHpCost);
+                currentPoints(CharacterParamsHelper.hpCost(), oldHpCost);
 
                 bl.setText(String.format("%d", CharacterParamsHelper.bl()));
                 damageThrust.setText(DmgHelper.damageThrust(character.st));
                 damageSwing.setText(DmgHelper.damageSwing(character.st));
-
-                character.save();
             }
         });
     }
@@ -224,18 +234,17 @@ public class ParamsActivity extends Activity {
 
                 int oldDxCost = Integer.parseInt(dxCost.getText().toString());
                 dxCost.setText(String.format("%d", CharacterParamsHelper.dxCost()));
-//            currentPoints(dxCost, oldDxCost);
+                currentPoints(CharacterParamsHelper.dxCost(), oldDxCost);
 
                 int oldBsCost = Integer.parseInt(bsCost.getText().toString());
                 bsCost.setText(String.format("%d", CharacterParamsHelper.bsCost()));
-//            currentPoints(bsCost, oldBsCost);
+                currentPoints(CharacterParamsHelper.bsCost(), oldBsCost);
 
                 int oldMoveCost = Integer.parseInt(moveCost.getText().toString());
                 moveCost.setText(String.format("%d", CharacterParamsHelper.moveCost()));
-//            currentPoints(moveCost, oldMoveCost);
+                currentPoints(CharacterParamsHelper.moveCost(), oldMoveCost);
 
                 doge.setText(String.format("%d", CharacterParamsHelper.doge()));
-                character.save();
             }
         });
     }
@@ -256,7 +265,7 @@ public class ParamsActivity extends Activity {
 
                 int oldIqCost = Integer.parseInt(iqCost.getText().toString());
                 iqCost.setText(String.format("%d", CharacterParamsHelper.iqCost()));
-//            currentPoints(iqCost, oldIqCost);
+                currentPoints(CharacterParamsHelper.iqCost(), oldIqCost);
 
                 if (intValue > character.will) {
                     character.will = intValue;
@@ -270,12 +279,11 @@ public class ParamsActivity extends Activity {
 
                 int oldWillCost = Integer.parseInt(willCost.getText().toString());
                 willCost.setText(String.format("%d", CharacterParamsHelper.willCost()));
-//            currentPoints(willCost, oldWillCost);
+                currentPoints(CharacterParamsHelper.willCost(), oldWillCost);
 
                 int oldPerCost = Integer.parseInt(perCost.getText().toString());
                 perCost.setText(String.format("%d", CharacterParamsHelper.perCost()));
-//            currentPoints(perCost, oldPerCost);
-                character.save();
+                currentPoints(CharacterParamsHelper.perCost(), oldPerCost);
             }
         });
     }
@@ -296,7 +304,7 @@ public class ParamsActivity extends Activity {
 
                 int oldHtCost = Integer.parseInt(htCost.getText().toString());
                 htCost.setText(String.format("%d", CharacterParamsHelper.htCost()));
-//            currentPoints(htCost, oldHtCost);
+                currentPoints(CharacterParamsHelper.htCost(), oldHtCost);
 
                 if (intValue > character.fp) {
                     character.fp = intValue;
@@ -305,16 +313,15 @@ public class ParamsActivity extends Activity {
 
                 int oldFpCost = Integer.parseInt(fpCost.getText().toString());
                 fpCost.setText(String.format("%d", CharacterParamsHelper.fpCost()));
-//            currentPoints(fpCost, oldFpCost);
+                currentPoints(CharacterParamsHelper.fpCost(), oldFpCost);
 
                 int oldBsCost = Integer.parseInt(bsCost.getText().toString());
                 bsCost.setText(String.format("%d", CharacterParamsHelper.bsCost()));
-//            currentPoints(bsCost, oldBsCost);
+                currentPoints(CharacterParamsHelper.bsCost(), oldBsCost);
 
                 int oldMoveCost = Integer.parseInt(moveCost.getText().toString());
                 moveCost.setText(String.format("%d", CharacterParamsHelper.moveCost()));
-//            currentPoints(moveCost, oldMoveCost);
-                character.save();
+                currentPoints(CharacterParamsHelper.moveCost(), oldMoveCost);
             }
         });
     }
@@ -335,8 +342,7 @@ public class ParamsActivity extends Activity {
 
                 int oldHpCost = Integer.parseInt(hpCost.getText().toString());
                 hpCost.setText(String.format("%d", CharacterParamsHelper.hpCost()));
-//            currentPoints(hpCost, oldHpCost);
-                character.save();
+                currentPoints(CharacterParamsHelper.hpCost(), oldHpCost);
             }
         });
     }
@@ -357,8 +363,7 @@ public class ParamsActivity extends Activity {
 
                 int oldWillCost = Integer.parseInt(willCost.getText().toString());
                 willCost.setText(String.format("%d", CharacterParamsHelper.willCost()));
-//            currentPoints(willCost, oldWillCost);
-                character.save();
+                currentPoints(CharacterParamsHelper.willCost(), oldWillCost);
             }
         });
     }
@@ -379,8 +384,7 @@ public class ParamsActivity extends Activity {
 
                 int oldPerCost = Integer.parseInt(perCost.getText().toString());
                 perCost.setText(String.format("%d", CharacterParamsHelper.perCost()));
-//            currentPoints(perCost, oldPerCost);
-                character.save();
+                currentPoints(CharacterParamsHelper.perCost(), oldPerCost);
             }
         });
     }
@@ -399,10 +403,9 @@ public class ParamsActivity extends Activity {
                 if (character.fp.equals(intValue)) return;
                 character.fp = intValue;
 
-            int oldFpCost = Integer.parseInt(fpCost.getText().toString());
-            fpCost.setText(String.format("%d", CharacterParamsHelper.fpCost()));
-//            currentPoints(fpCost, oldFpCost);
-                character.save();
+                int oldFpCost = Integer.parseInt(fpCost.getText().toString());
+                fpCost.setText(String.format("%d", CharacterParamsHelper.fpCost()));
+                currentPoints(CharacterParamsHelper.fpCost(), oldFpCost);
             }
         });
     }
@@ -421,22 +424,21 @@ public class ParamsActivity extends Activity {
                 if (character.bs.equals(dNewValue)) return;
                 character.bs = dNewValue;
 
-            int intNewValue = (int) dNewValue;
-            if(intNewValue > character.move) {
-                character.move = intNewValue;
-                moveEdit.setText(String.format("%d", character.move));
-            }
+                int intNewValue = (int) dNewValue;
+                if (intNewValue > character.move) {
+                    character.move = intNewValue;
+                    moveEdit.setText(String.format("%d", character.move));
+                }
 
-            int oldBsCost = Integer.parseInt(bsCost.getText().toString());
-            bsCost.setText(String.format("%d", CharacterParamsHelper.bsCost()));
-//            currentPoints(bsCost, oldBsCost);
+                int oldBsCost = Integer.parseInt(bsCost.getText().toString());
+                bsCost.setText(String.format("%d", CharacterParamsHelper.bsCost()));
+                currentPoints(CharacterParamsHelper.bsCost(), oldBsCost);
 
-            int oldMoveCost = Integer.parseInt(moveCost.getText().toString());
-            moveCost.setText(String.format("%d", CharacterParamsHelper.moveCost()));
-//            currentPoints(moveCost, oldMoveCost);
+                int oldMoveCost = Integer.parseInt(moveCost.getText().toString());
+                moveCost.setText(String.format("%d", CharacterParamsHelper.moveCost()));
+                currentPoints(CharacterParamsHelper.moveCost(), oldMoveCost);
 
-            doge.setText(String.format("%d", CharacterParamsHelper.doge()));
-                character.save();
+                doge.setText(String.format("%d", CharacterParamsHelper.doge()));
             }
         });
     }
@@ -455,10 +457,9 @@ public class ParamsActivity extends Activity {
                 if (character.move.equals(intValue)) return;
                 character.move = intValue;
 
-            int oldMoveCost = Integer.parseInt(moveCost.getText().toString());
-            moveCost.setText(String.format("%d", CharacterParamsHelper.moveCost()));
-//            currentPoints(moveCost, oldMoveCost);
-                character.save();
+                int oldMoveCost = Integer.parseInt(moveCost.getText().toString());
+                moveCost.setText(String.format("%d", CharacterParamsHelper.moveCost()));
+                currentPoints(CharacterParamsHelper.moveCost(), oldMoveCost);
             }
         });
     }
@@ -472,9 +473,9 @@ public class ParamsActivity extends Activity {
             }
 
             public void afterTextChanged(Editable newValue) {
-                if(character.name.equals(newValue.toString())) return;
+                if (character.name.equals(newValue.toString())) return;
                 character.name = newValue.toString();
-            character.update_single("name", newValue);
+                character.update_single("name", newValue);
             }
         });
     }
@@ -488,9 +489,9 @@ public class ParamsActivity extends Activity {
             }
 
             public void afterTextChanged(Editable newValue) {
-                if (character.player.equals(newValue.toString())) return;
+                if (character.player != null && character.player.equals(newValue.toString())) return;
                 character.player = newValue.toString();
-            character.update_single("player", newValue);
+                character.update_single("player", newValue.toString());
             }
         });
     }
@@ -508,7 +509,7 @@ public class ParamsActivity extends Activity {
                 Integer intValue = Integer.parseInt(newValue.toString());
                 if (character.tl.equals(intValue)) return;
                 character.tl = intValue;
-            character.update_single("tl", intValue);
+                character.update_single("tl", intValue);
             }
         });
     }
@@ -529,8 +530,7 @@ public class ParamsActivity extends Activity {
 
                 int oldMoveCost = Integer.parseInt(tlCostEdit.getText().toString());
                 tlCostEdit.setText(String.format("%d", character.tlCost));
-//                currentPoints(tlCost, oldMoveCost);
-                character.save();
+                currentPoints(character.tlCost, oldMoveCost);
             }
         });
     }
@@ -590,39 +590,43 @@ public class ParamsActivity extends Activity {
     }
 
     private void setElements() {
-        characterNameEdit = (EditText) findViewById(R.id.characterNameEdit);
-        playerNameEdit = (EditText) findViewById(R.id.playerNameEdit);
-        growthEdit = (EditText) findViewById(R.id.growthEdit);
-        weightEdit = (EditText) findViewById(R.id.weightEdit);
-        ageEdit = (EditText) findViewById(R.id.ageEdit);
-        tlEdit = (EditText) findViewById(R.id.tlEdit);
-        tlCostEdit = (EditText) findViewById(R.id.tlCostEdit);
-        smEdit = (EditText) findViewById(R.id.smEdit);
-        noFineManipulators = (CheckBox) findViewById(R.id.noFineManipulators);
-        stEdit = (EditText) findViewById(R.id.stEdit);
-        dxEdit = (EditText) findViewById(R.id.dxEdit);
-        iqEdit = (EditText) findViewById(R.id.iqEdit);
-        htEdit = (EditText) findViewById(R.id.htEdit);
-        stCost = (TextView) findViewById(R.id.stCost);
-        dxCost = (TextView) findViewById(R.id.dxCost);
-        iqCost = (TextView) findViewById(R.id.iqCost);
-        htCost = (TextView) findViewById(R.id.htCost);
-        hpEdit = (EditText) findViewById(R.id.hpEdit);
-        willEdit = (EditText) findViewById(R.id.willEdit);
-        perEdit = (EditText) findViewById(R.id.perEdit);
-        fpEdit = (EditText) findViewById(R.id.fpEdit);
-        hpCost = (TextView) findViewById(R.id.hpCost);
-        willCost = (TextView) findViewById(R.id.willCost);
-        perCost = (TextView) findViewById(R.id.perCost);
-        fpCost = (TextView) findViewById(R.id.fpCost);
-        bsEdit = (EditText) findViewById(R.id.bsEdit);
-        bsCost = (TextView) findViewById(R.id.bsCost);
-        moveEdit = (EditText) findViewById(R.id.moveEdit);
-        moveCost = (TextView) findViewById(R.id.moveCost);
-        bl = (TextView) findViewById(R.id.bl);
-        doge = (TextView) findViewById(R.id.doge);
-        damageThrust = (TextView) findViewById(R.id.damageThrust);
-        damageSwing = (TextView) findViewById(R.id.damageSwing);
+        characterNameEdit = (EditText) view.findViewById(R.id.characterNameEdit);
+        playerNameEdit = (EditText) view.findViewById(R.id.playerNameEdit);
+        growthEdit = (EditText) view.findViewById(R.id.growthEdit);
+        weightEdit = (EditText) view.findViewById(R.id.weightEdit);
+        ageEdit = (EditText) view.findViewById(R.id.ageEdit);
+        tlEdit = (EditText) view.findViewById(R.id.tlEdit);
+        tlCostEdit = (EditText) view.findViewById(R.id.tlCostEdit);
+        smEdit = (EditText) view.findViewById(R.id.smEdit);
+        noFineManipulators = (CheckBox) view.findViewById(R.id.noFineManipulators);
+        stEdit = (EditText) view.findViewById(R.id.stEdit);
+        dxEdit = (EditText) view.findViewById(R.id.dxEdit);
+        iqEdit = (EditText) view.findViewById(R.id.iqEdit);
+        htEdit = (EditText) view.findViewById(R.id.htEdit);
+        stCost = (TextView) view.findViewById(R.id.stCost);
+        dxCost = (TextView) view.findViewById(R.id.dxCost);
+        iqCost = (TextView) view.findViewById(R.id.iqCost);
+        htCost = (TextView) view.findViewById(R.id.htCost);
+        hpEdit = (EditText) view.findViewById(R.id.hpEdit);
+        willEdit = (EditText) view.findViewById(R.id.willEdit);
+        perEdit = (EditText) view.findViewById(R.id.perEdit);
+        fpEdit = (EditText) view.findViewById(R.id.fpEdit);
+        hpCost = (TextView) view.findViewById(R.id.hpCost);
+        willCost = (TextView) view.findViewById(R.id.willCost);
+        perCost = (TextView) view.findViewById(R.id.perCost);
+        fpCost = (TextView) view.findViewById(R.id.fpCost);
+        bsEdit = (EditText) view.findViewById(R.id.bsEdit);
+        bsCost = (TextView) view.findViewById(R.id.bsCost);
+        moveEdit = (EditText) view.findViewById(R.id.moveEdit);
+        moveCost = (TextView) view.findViewById(R.id.moveCost);
+        bl = (TextView) view.findViewById(R.id.bl);
+        doge = (TextView) view.findViewById(R.id.doge);
+        damageThrust = (TextView) view.findViewById(R.id.damageThrust);
+        damageSwing = (TextView) view.findViewById(R.id.damageSwing);
 
+    }
+
+    private void currentPoints(int cost, int oldStCost) {
+        ((MenuActivity) getActivity()).setCurrentPoints(character.currentPoints + cost - oldStCost);
     }
 }
