@@ -31,4 +31,12 @@
     <string name="doge">Уклонение</string>
     <string name="damage_thrust">Повреждение прямое</string>
     <string name="damage_swing">Повреждение амплитудное</string>
+
+    <string name="character_params">Параметры персонажа</string>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+    <string name="max_points_all">Максимум очков</string>
+    <string name="points_use">Использовано очков</string>
 </resources>
