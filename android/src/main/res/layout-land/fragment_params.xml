@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="ru.gurps.generator.android.activities.character.ParamsActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/character_name"
+        android:id="@+id/characterNameTextView"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="@dimen/params_margin_left_names" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/player_name"
+        android:id="@+id/playerNameTextView"
+        android:layout_alignParentTop="false"
+        android:layout_toRightOf="@+id/characterNameTextView"
+        android:layout_marginLeft="@dimen/params_margin_left_names"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignTop="@+id/characterNameTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/growth"
+        android:id="@+id/growthTextView"
+        android:layout_alignParentTop="false"
+        android:layout_toRightOf="@+id/playerNameTextView"
+        android:layout_marginLeft="@dimen/params_margin_left_names"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignTop="@+id/characterNameTextView" />
+
+    <TextView
+        android:layout_width="@dimen/params_min_size_text_view"
+        android:layout_height="wrap_content"
+        android:text="@string/weight"
+        android:id="@+id/weightTextView"
+        android:layout_alignParentTop="false"
+        android:layout_toRightOf="@+id/growthTextView"
+        android:layout_marginLeft="@dimen/params_margin_left_names"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignParentEnd="false"
+        android:gravity="center_horizontal"
+        android:layout_alignTop="@+id/growthTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/age"
+        android:id="@+id/ageTextView"
+        android:layout_alignParentTop="false"
+        android:layout_toRightOf="@+id/weightTextView"
+        android:layout_marginLeft="@dimen/params_margin_left_names"
+        android:textIsSelectable="false"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignTop="@+id/weightTextView" />
+
+    <TextView
+        android:layout_width="@dimen/params_min_size_text_view"
+        android:layout_height="wrap_content"
+        android:text="@string/tl_short"
+        android:id="@+id/tlTextView"
+        android:layout_marginLeft="@dimen/params_margin_left_names"
+        android:layout_toRightOf="@+id/ageTextView"
+        android:textSize="@dimen/string_font_size"
+        android:gravity="center_horizontal"
+        android:layout_alignTop="@+id/ageTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tl_cost_short"
+        android:id="@+id/tlCostTextView"
+        android:textSize="@dimen/string_font_size"
+        android:layout_toRightOf="@+id/tlTextView"
+        android:layout_marginLeft="@dimen/params_margin_left_names"
+        android:layout_alignTop="@+id/tlTextView" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/characterNameEdit"
+        android:inputType="text"
+        android:layout_below="@+id/characterNameTextView"
+        android:layout_alignRight="@+id/characterNameTextView"
+        android:layout_alignLeft="@+id/characterNameTextView"
+        android:textSize="@dimen/string_font_size" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/playerNameEdit"
+        android:layout_below="@+id/playerNameTextView"
+        android:inputType="text"
+        android:layout_alignRight="@+id/playerNameTextView"
+        android:layout_alignLeft="@+id/playerNameTextView"
+        android:textSize="@dimen/string_font_size" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/growthEdit"
+        android:layout_below="@+id/growthTextView"
+        android:inputType="number"
+        android:layout_alignRight="@+id/growthTextView"
+        android:layout_alignLeft="@+id/growthTextView"
+        android:textSize="@dimen/string_font_size" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/weightEdit"
+        android:layout_below="@+id/weightTextView"
+        android:layout_alignLeft="@+id/weightTextView"
+        android:layout_alignStart="@+id/weightTextView"
+        android:layout_toLeftOf="@+id/ageTextView"
+        android:inputType="number"
+        android:layout_alignRight="@+id/weightTextView"
+        android:textSize="@dimen/string_font_size" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ageEdit"
+        android:layout_below="@+id/ageTextView"
+        android:layout_alignLeft="@+id/ageTextView"
+        android:layout_alignStart="@+id/ageTextView"
+        android:layout_alignRight="@+id/ageTextView"
+        android:layout_alignEnd="@+id/ageTextView"
+        android:inputType="number"
+        android:textSize="@dimen/string_font_size" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tlEdit"
+        android:layout_below="@+id/tlTextView"
+        android:layout_alignLeft="@+id/tlTextView"
+        android:layout_alignStart="@+id/tlTextView"
+        android:inputType="number"
+        android:layout_alignRight="@+id/tlTextView"
+        android:textSize="@dimen/string_font_size" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tlCostEdit"
+        android:layout_below="@+id/tlCostTextView"
+        android:layout_alignLeft="@+id/tlCostTextView"
+        android:layout_alignRight="@+id/tlCostTextView"
+        android:layout_alignEnd="@+id/tlCostTextView"
+        android:textSize="@dimen/string_font_size"
+        android:inputType="numberSigned" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/size_modifier"
+        android:id="@+id/sizeModifierTextView"
+        android:textSize="@dimen/string_font_size"
+        android:layout_marginTop="@dimen/params_margin_top"
+        android:gravity="center"
+        android:layout_marginLeft="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/characterNameEdit" />
+
+    <EditText
+        android:layout_width="@dimen/edit_width"
+        android:layout_height="wrap_content"
+        android:id="@+id/smEdit"
+        android:gravity="center_horizontal"
+        android:inputType="number"
+        android:layout_alignBottom="@+id/sizeModifierTextView"
+        android:layout_toRightOf="@+id/sizeModifierTextView"
+        android:layout_marginLeft="@dimen/after_text_view_margin_left"
+        android:textSize="@dimen/string_font_size" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_fine_manipulators"
+        android:id="@+id/noFineManipulators"
+        android:layout_alignTop="@+id/smEdit"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignBottom="@+id/smEdit"
+        android:checked="false"
+        android:layout_toRightOf="@+id/smEdit"
+        android:layout_marginLeft="120dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/strength"
+        android:id="@+id/st"
+        android:layout_marginTop="@dimen/params_margin_top"
+        android:textSize="@dimen/string_font_size"
+        android:gravity="center"
+        android:layout_alignParentStart="false"
+        android:layout_below="@+id/sizeModifierTextView"
+        android:layout_alignLeft="@+id/sizeModifierTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/dexterity"
+        android:id="@+id/dx"
+        android:layout_below="@+id/st"
+        android:layout_alignLeft="@+id/st"
+        android:layout_alignStart="@+id/st"
+        android:textSize="@dimen/string_font_size"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/intellect"
+        android:id="@+id/iq"
+        android:layout_below="@+id/dx"
+        android:layout_alignLeft="@+id/dx"
+        android:layout_alignStart="@+id/dx"
+        android:textSize="@dimen/string_font_size"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/health"
+        android:id="@+id/ht"
+        android:layout_below="@+id/iq"
+        android:layout_alignLeft="@+id/iq"
+        android:layout_alignStart="@+id/iq"
+        android:textSize="@dimen/string_font_size"
+        android:gravity="center" />
+
+    <EditText
+        android:layout_width="@dimen/edit_width"
+        android:layout_height="wrap_content"
+        android:id="@+id/stEdit"
+        android:text="@string/defaultCharacteristicValue"
+        android:inputType="number"
+        android:layout_alignParentStart="false"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:layout_toRightOf="@+id/st"
+        android:layout_marginLeft="70dp"
+        android:layout_alignBottom="@+id/st" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dxEdit"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:text="@string/defaultCharacteristicValue"
+        android:inputType="number"
+        android:layout_toRightOf="@+id/dx"
+        android:layout_alignBottom="@+id/dx"
+        android:layout_alignStart="@id/stEdit"
+        android:layout_alignRight="@+id/stEdit" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/iqEdit"
+        android:gravity="center"
+        android:text="@string/defaultCharacteristicValue"
+        android:inputType="number"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignStart="@+id/dxEdit"
+        android:layout_alignBottom="@+id/iq"
+        android:layout_alignRight="@+id/dxEdit" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/htEdit"
+        android:gravity="center"
+        android:text="@string/defaultCharacteristicValue"
+        android:inputType="number"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignStart="@+id/iqEdit"
+        android:layout_alignRight="@+id/iqEdit"
+        android:layout_alignBottom="@+id/ht" />
+
+    <TextView
+        android:layout_width="@dimen/params_cost_width"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/defaultCharacteristicCost"
+        android:id="@+id/stCost"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:layout_toRightOf="@+id/stEdit"
+        android:layout_alignBottom="@+id/stEdit"
+        android:layout_marginLeft="@dimen/after_text_view_margin_left" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/defaultCharacteristicCost"
+        android:id="@+id/dxCost"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignBottom="@+id/dxEdit"
+        android:layout_alignStart="@id/stCost"
+        android:layout_alignRight="@+id/stCost" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/defaultCharacteristicCost"
+        android:id="@+id/iqCost"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignStart="@id/dxCost"
+        android:layout_alignBottom="@+id/iqEdit"
+        android:layout_alignParentStart="false"
+        android:layout_alignRight="@+id/dxCost" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/defaultCharacteristicCost"
+        android:id="@+id/htCost"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignBottom="@+id/htEdit"
+        android:layout_alignStart="@id/iqCost"
+        android:layout_alignRight="@+id/iqCost" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/health_points"
+        android:id="@+id/hp"
+        android:layout_alignParentEnd="false"
+        android:layout_alignBottom="@+id/stCost"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignTop="@+id/stCost"
+        android:gravity="center"
+        android:layout_alignLeft="@+id/noFineManipulators" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/will"
+        android:id="@+id/will"
+        android:layout_alignBottom="@+id/dxCost"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignParentStart="false"
+        android:layout_alignStart="@id/hp"
+        android:layout_alignTop="@+id/dxCost"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/perception"
+        android:id="@+id/perception"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignStart="@+id/will"
+        android:layout_alignBottom="@+id/iqCost"
+        android:gravity="center"
+        android:layout_alignTop="@+id/iqCost" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fatigue_points"
+        android:id="@+id/fp"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignBottom="@+id/htCost"
+        android:layout_alignStart="@+id/perception"
+        android:layout_alignTop="@+id/htCost"
+        android:gravity="center" />
+
+    <EditText
+        android:layout_width="@dimen/edit_width"
+        android:layout_height="wrap_content"
+        android:id="@+id/hpEdit"
+        android:text="@string/defaultCharacteristicValue"
+        android:inputType="number"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignBottom="@+id/hp"
+        android:layout_toRightOf="@+id/hp"
+        android:layout_marginLeft="40dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/willEdit"
+        android:text="@string/defaultCharacteristicValue"
+        android:inputType="number"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignStart="@+id/hpEdit"
+        android:layout_alignBottom="@+id/will"
+        android:layout_alignRight="@+id/hpEdit" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/perEdit"
+        android:text="@string/defaultCharacteristicValue"
+        android:inputType="number"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignStart="@+id/willEdit"
+        android:layout_alignBottom="@+id/perception"
+        android:layout_alignRight="@+id/willEdit" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fpEdit"
+        android:text="@string/defaultCharacteristicValue"
+        android:inputType="number"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignBottom="@+id/fp"
+        android:layout_alignStart="@+id/perEdit"
+        android:layout_alignRight="@+id/perEdit" />
+
+    <TextView
+        android:layout_width="@dimen/params_cost_width"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/defaultCharacteristicCost"
+        android:id="@+id/hpCost"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignBottom="@+id/hpEdit"
+        android:layout_toRightOf="@+id/hpEdit"
+        android:layout_marginLeft="@dimen/after_text_view_margin_left" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/defaultCharacteristicCost"
+        android:id="@+id/willCost"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignBottom="@+id/willEdit"
+        android:layout_alignRight="@+id/hpCost"
+        android:layout_alignStart="@id/hpCost" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/defaultCharacteristicCost"
+        android:id="@+id/perCost"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignStart="@+id/willCost"
+        android:layout_alignRight="@+id/willCost"
+        android:layout_alignBottom="@+id/perEdit" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/defaultCharacteristicCost"
+        android:id="@+id/fpCost"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignStart="@id/perCost"
+        android:layout_alignBottom="@+id/fpEdit"
+        android:layout_alignRight="@+id/perCost" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_two_string_height"
+        android:text="@string/basic_speed"
+        android:id="@+id/basic_speed"
+        android:layout_marginTop="@dimen/params_margin_top"
+        android:layout_alignParentStart="false"
+        android:layout_below="@+id/ht"
+        android:textSize="@dimen/string_font_size"
+        android:gravity="center"
+        android:layout_alignRight="@+id/ht"
+        android:layout_alignLeft="@+id/ht" />
+
+    <EditText
+        android:layout_width="@dimen/edit_width"
+        android:layout_height="wrap_content"
+        android:id="@+id/bsEdit"
+        android:gravity="center"
+        android:text="@string/defaultCharacteristicValue"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignBottom="@+id/basic_speed"
+        android:layout_alignTop="@+id/basic_speed"
+        android:layout_alignLeft="@+id/htEdit"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:layout_width="@dimen/params_cost_width"
+        android:layout_height="wrap_content"
+        android:text="@string/defaultCharacteristicCost"
+        android:id="@+id/bsCost"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignBottom="@+id/bsEdit"
+        android:layout_alignTop="@+id/bsEdit"
+        android:layout_alignLeft="@+id/htCost" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/basic_move"
+        android:id="@+id/move"
+        android:layout_alignBottom="@+id/bsCost"
+        android:textSize="@dimen/string_font_size"
+        android:gravity="center"
+        android:layout_alignLeft="@+id/fp"
+        android:layout_alignRight="@+id/fp"
+        android:layout_alignTop="@+id/bsCost" />
+
+    <EditText
+        android:layout_width="@dimen/edit_width"
+        android:layout_height="wrap_content"
+        android:id="@+id/moveEdit"
+        android:gravity="center"
+        android:text="@string/defaultCharacteristicValue"
+        android:inputType="number"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignBottom="@+id/move"
+        android:layout_alignTop="@+id/move"
+        android:layout_alignLeft="@+id/fpEdit" />
+
+    <TextView
+        android:layout_width="@dimen/params_cost_width"
+        android:layout_height="wrap_content"
+        android:text="@string/defaultCharacteristicCost"
+        android:id="@+id/moveCost"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignBottom="@+id/moveEdit"
+        android:layout_alignLeft="@+id/fpCost"
+        android:layout_alignTop="@+id/moveEdit" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/basic_lift"
+        android:id="@+id/blText"
+        android:textSize="@dimen/string_font_size"
+        android:gravity="center"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false"
+        android:layout_below="@+id/bsCost"
+        android:layout_marginTop="@dimen/params_margin_top"
+        android:layout_toRightOf="@+id/bsCost" />
+
+    <TextView
+        android:layout_width="@dimen/params_cost_width"
+        android:layout_height="wrap_content"
+        android:text="@string/defaultCharacteristicCost"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignTop="@+id/blText"
+        android:layout_alignBottom="@+id/blText"
+        android:layout_toRightOf="@+id/blText"
+        android:layout_marginLeft="@dimen/after_text_view_margin_left"
+        android:id="@+id/bl" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/doge"
+        android:id="@+id/dogeText"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="true"
+        android:textSize="@dimen/string_font_size"
+        android:gravity="center"
+        android:layout_marginLeft="80dp"
+        android:layout_below="@+id/blText"
+        android:layout_marginTop="@dimen/params_margin_top" />
+
+    <TextView
+        android:layout_width="@dimen/params_cost_width"
+        android:layout_height="wrap_content"
+        android:text="@string/defaultCharacteristicCost"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:id="@+id/doge"
+        android:layout_alignBottom="@+id/dogeText"
+        android:layout_alignTop="@+id/dogeText"
+        android:layout_marginLeft="@dimen/after_text_view_margin_left"
+        android:layout_toRightOf="@+id/dogeText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/damage_thrust"
+        android:id="@+id/damageThrustText"
+        android:layout_alignBottom="@+id/doge"
+        android:layout_toRightOf="@+id/doge"
+        android:textSize="@dimen/string_font_size"
+        android:layout_alignTop="@+id/doge"
+        android:gravity="center"
+        android:layout_marginLeft="@dimen/after_text_view_margin_left" />
+
+    <TextView
+        android:layout_width="@dimen/params_cost_width"
+        android:layout_height="wrap_content"
+        android:text="@string/defaultCharacteristicCost"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:id="@+id/damageThrust"
+        android:layout_alignBottom="@+id/damageThrustText"
+        android:layout_toRightOf="@+id/damageThrustText"
+        android:layout_alignTop="@+id/damageThrustText"
+        android:layout_marginLeft="@dimen/after_text_view_margin_left" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/damage_swing"
+        android:id="@+id/damageSwingText"
+        android:layout_alignBottom="@+id/damageThrust"
+        android:layout_toRightOf="@+id/damageThrust"
+        android:layout_alignTop="@+id/damageThrust"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size" />
+
+    <TextView
+        android:layout_width="@dimen/params_cost_width"
+        android:layout_height="wrap_content"
+        android:text="@string/defaultCharacteristicCost"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:id="@+id/damageSwing"
+        android:layout_alignBottom="@+id/damageSwingText"
+        android:layout_toRightOf="@+id/damageSwingText"
+        android:layout_marginLeft="@dimen/after_text_view_margin_left"
+        android:layout_alignTop="@+id/damageSwingText" />
+</RelativeLayout>
