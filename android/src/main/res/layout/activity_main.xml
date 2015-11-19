@@ -41,6 +41,8 @@
         android:onClick="onCreate"/>
 
     <ListView
+        android:choiceMode="singleChoice"
+        android:listSelector="@color/select_color"
         android:id="@android:id/list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

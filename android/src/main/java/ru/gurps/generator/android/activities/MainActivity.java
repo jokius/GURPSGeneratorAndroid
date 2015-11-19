@@ -79,15 +79,6 @@ public class MainActivity extends ListActivity {
 
     protected void onListItemClick(ListView l, View v, int position, long id) {
         setCharacter((Character) getListAdapter().getItem(position));
-        if (last_view == null) {
-            last_view = v;
-            default_color = v.getDrawingCacheBackgroundColor();
-        } else {
-            last_view.setBackgroundColor(default_color);
-            last_view = v;
-        }
-
-        v.setBackgroundColor(DeprecatedHelper.getColor(this, R.color.select_color));
         select.setEnabled(true);
         delete.setEnabled(true);
     }
