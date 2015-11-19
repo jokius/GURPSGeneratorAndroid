@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import ru.gurps.generator.android.R;
+import ru.gurps.generator.android.helpers.DeprecatedHelper;
 import ru.gurps.generator.android.models.Character;
 
 public class CharactersAdapter extends ArrayAdapter<Character> {
@@ -39,20 +40,11 @@ public class CharactersAdapter extends ArrayAdapter<Character> {
         holder.name.setText(character.name);
         holder.currentPoints.setText(String.format("%d", character.currentPoints));
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if(character.currentPoints <= character.maxPoints)
-                holder.currentPoints.setTextColor(mContext.getResources()
-                        .getColor(R.color.have_points, mContext.getTheme()));
-            else holder.currentPoints.setTextColor(mContext.getResources()
-                    .getColor(R.color.not_have_points, mContext.getTheme()));
-        }
-        else {
-            if(character.currentPoints <= character.maxPoints)
-                holder.currentPoints.setTextColor(mContext.getResources()
-                        .getColor(R.color.have_points));
-            else holder.currentPoints.setTextColor(mContext.getResources()
-                    .getColor(R.color.not_have_points));
-        }
+        if(character.currentPoints <= character.maxPoints)
+            holder.currentPoints
+                    .setTextColor(DeprecatedHelper.getColor(mContext, R.color.have_points));
+        else holder.currentPoints
+                .setTextColor(DeprecatedHelper.getColor(mContext, R.color.not_have_points));
 
         return convertView;
     }
