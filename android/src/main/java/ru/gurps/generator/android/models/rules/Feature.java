@@ -44,16 +44,16 @@ public class Feature extends Model {
         this.modifier = modifier;
     }
 
-    public String getFeatureType() {
+    public String getFeatureType(Context context) {
         String new_type = featureType;
         new_type = new_type.replace("[", "");
         new_type = new_type.replace("]", "");
         new_type = new_type.replace(",", "/ ");
-        new_type = new_type.replace("1", R.string.physical_short + " ");
-        new_type = new_type.replace("2", R.string.social_short + " ");
-        new_type = new_type.replace("3", R.string.mental_short + " ");
-        new_type = new_type.replace("4", R.string.exotic_short + " ");
-        new_type = new_type.replace("5", R.string.supernatural_short + " ");
+        new_type = new_type.replace("1", context.getResources().getString(R.string.physical_short) + " ");
+        new_type = new_type.replace("2", context.getResources().getString(R.string.social_short) + " ");
+        new_type = new_type.replace("3", context.getResources().getString(R.string.mental_short) + " ");
+        new_type = new_type.replace("4", context.getResources().getString(R.string.exotic_short) + " ");
+        new_type = new_type.replace("5", context.getResources().getString(R.string.supernatural_short) + " ");
         return new_type;
     }
 }
