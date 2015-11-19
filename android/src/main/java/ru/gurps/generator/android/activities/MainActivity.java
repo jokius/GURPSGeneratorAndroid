@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import ru.gurps.generator.android.R;
 import ru.gurps.generator.android.adapters.CharactersAdapter;
+import ru.gurps.generator.android.helpers.DeprecatedHelper;
 import ru.gurps.generator.android.models.Character;
 import ru.gurps.generator.android.singletons.CharacterSingleton;
 
@@ -86,7 +87,7 @@ public class MainActivity extends ListActivity {
             last_view = v;
         }
 
-        v.setBackgroundColor(getResources().getColor(R.color.select_color));
+        v.setBackgroundColor(DeprecatedHelper.getColor(this, R.color.select_color));
         select.setEnabled(true);
         delete.setEnabled(true);
     }
@@ -106,7 +107,8 @@ public class MainActivity extends ListActivity {
         character.delete();
         adapter.remove(character);
         adapter.notifyDataSetChanged();
-        Toast.makeText(getApplicationContext(), getResources().getString(R.string.delete_single) + " " + character.name, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), getResources().getString(R.string.delete_single) +
+                " " + character.name, Toast.LENGTH_SHORT).show();
     }
 
     private void openCharacter(){
