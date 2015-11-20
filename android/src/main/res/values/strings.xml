@@ -45,11 +45,16 @@
     <string name="cost">Стоимость</string>
     <string name="description">Описание</string>
 
-    <!-- Feature types -->
+    <!-- Features -->
     <string name="physical_short">Ф</string>
     <string name="social_short">Соц</string>
     <string name="mental_short">М</string>
     <string name="exotic_short">Э</string>
     <string name="supernatural_short">С</string>
-    <!-- Feature types end -->
+    <string name="advantages">Преимущества</string>
+    <string name="disadvantages">Недостатки</string>
+    <string name="add">Добавить</string>
+    <string name="add_and_full">Добавить и подробнее</string>
+    <string name="full">Подробнее</string>
+    <!-- Features end -->
 </resources>
