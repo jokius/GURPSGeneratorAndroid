@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import ru.gurps.generator.android.R;
 import ru.gurps.generator.android.adapters.CharactersAdapter;
-import ru.gurps.generator.android.helpers.DeprecatedHelper;
 import ru.gurps.generator.android.models.Character;
 import ru.gurps.generator.android.singletons.CharacterSingleton;
 
@@ -24,8 +23,6 @@ public class MainActivity extends ListActivity {
     private Button create;
     private Button select;
     private Button delete;
-    private View last_view;
-    private int default_color;
     private CharactersAdapter adapter;
 
     @Override
