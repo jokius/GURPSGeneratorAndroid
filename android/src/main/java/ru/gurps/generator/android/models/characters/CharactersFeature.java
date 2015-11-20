@@ -6,8 +6,8 @@ import ru.gurps.generator.android.db.Model;
 
 public class CharactersFeature extends Model {
     public Long _id;
-    public Integer characterId;
-    public Integer featureId;
+    public Long characterId;
+    public Long featureId;
     public Integer cost;
     public Integer level;
 
@@ -15,7 +15,7 @@ public class CharactersFeature extends Model {
         super(context);
     }
 
-    public CharactersFeature(Context context, Integer characterId, Integer featureId, Integer cost,
+    public CharactersFeature(Context context, Long characterId, Long featureId, Integer cost,
                              Integer level) {
         super(context);
         this.characterId = characterId;
