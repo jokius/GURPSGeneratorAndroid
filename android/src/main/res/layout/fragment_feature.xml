@@ -1,67 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/name"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/background_header_table"
         android:layout_alignParentStart="true"
-        android:textSize="@dimen/string_font_size"
-        android:gravity="center" />
+        android:id="@+id/linearLayout">
 
-    <TextView
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:text="@string/name_en"
-        android:id="@+id/textView2"
-        android:layout_above="@+id/listView"
-        android:layout_toRightOf="@+id/textView"
-        android:textSize="@dimen/string_font_size"
-        android:gravity="center" />
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/name"
+            android:id="@+id/textView"
+            android:textSize="@dimen/string_font_size"
+            android:gravity="center" />
 
-    <TextView
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:text="@string/type"
-        android:id="@+id/textView7"
-        android:gravity="center"
-        android:layout_above="@+id/listView"
-        android:textSize="@dimen/string_font_size"
-        android:layout_toRightOf="@+id/textView2" />
+        <View
+            android:layout_width="2dp"
+            android:layout_height="30dp"
+            android:background="@android:color/darker_gray"/>
 
-    <TextView
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:text="@string/cost"
-        android:id="@+id/textView8"
-        android:gravity="center"
-        android:layout_above="@+id/listView"
-        android:textSize="@dimen/string_font_size"
-        android:layout_toRightOf="@+id/textView7" />
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:text="@string/name_en"
+            android:id="@+id/textView2"
+            android:textSize="@dimen/string_font_size"
+            android:gravity="center" />
+        <View
+            android:layout_width="2dp"
+            android:layout_height="30dp"
+            android:background="@android:color/darker_gray"/>
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/description"
-        android:id="@+id/textView9"
-        android:gravity="center"
-        android:layout_above="@+id/listView"
-        android:layout_toRightOf="@+id/textView8"
-        android:textSize="@dimen/string_font_size"
-        android:layout_alignParentStart="false" />
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:text="@string/type"
+            android:id="@+id/textView7"
+            android:gravity="center"
+            android:textSize="@dimen/string_font_size" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="30dp"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="30dp"
+            android:text="@string/cost"
+            android:id="@+id/textView8"
+            android:gravity="center"
+            android:textSize="@dimen/string_font_size" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="30dp"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:text="@string/add_and_full"
+            android:id="@+id/textView9"
+            android:gravity="center"
+            android:textSize="@dimen/string_font_size" />
+    </LinearLayout>
 
     <ListView
+        android:choiceMode="singleChoice"
+        android:listSelector="@color/select_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_alignParentTop="false"
+        android:id="@android:id/list"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentBottom="true"
-        android:choiceMode="singleChoice" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
 </RelativeLayout>
