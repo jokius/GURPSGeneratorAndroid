@@ -2,7 +2,10 @@ package ru.gurps.generator.android.models;
 
 import android.content.Context;
 
+import java.util.HashMap;
+
 import ru.gurps.generator.android.db.Model;
+import ru.gurps.generator.android.models.characters.CharactersFeature;
 
 public class Character extends Model {
     public Long _id;
@@ -42,5 +45,12 @@ public class Character extends Model {
         super(context);
         this.name = name;
         this.maxPoints = maxPoints;
+    }
+
+    public CharactersFeature findCharacterFeature(Context context, Long featureId){
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        params.put("characterId", _id);
+        params.put("featureId", featureId);
+        return (CharactersFeature) new CharactersFeature(context).find_by(params);
     }
 }
