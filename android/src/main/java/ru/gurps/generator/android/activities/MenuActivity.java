@@ -1,7 +1,6 @@
 package ru.gurps.generator.android.activities;
 
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -12,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,7 +18,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import ru.gurps.generator.android.R;
+import ru.gurps.generator.android.fragments.tables.features.AdvantagesFragment;
 import ru.gurps.generator.android.fragments.character.ParamsFragment;
+import ru.gurps.generator.android.helpers.DeprecatedHelper;
 import ru.gurps.generator.android.models.Character;
 import ru.gurps.generator.android.singletons.CharacterSingleton;
 
@@ -88,6 +88,9 @@ public class MenuActivity extends AppCompatActivity {
             case R.id.nav_params_fragment:
                 fragmentClass = ParamsFragment.class;
                 break;
+            case R.id.nav_advantages_fragment:
+                fragmentClass = AdvantagesFragment.class;
+                break;
             default:
                 fragmentClass = ParamsFragment.class;
         }
@@ -99,11 +102,22 @@ public class MenuActivity extends AppCompatActivity {
         }
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        fragmentManager.beginTransaction()
+                .replace(R.id.flContent, fragment)
+                .commit();
     }
 
     private ActionBarDrawerToggle setupDrawerToggle() {
-        return new ActionBarDrawerToggle(this, dlDrawer, toolbar, R.string.drawer_open, R.string.drawer_close);
+        return new ActionBarDrawerToggle(this, dlDrawer, toolbar,
+                R.string.drawer_open, R.string.drawer_close) {
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+                currentPoints.setText(String.format("%d", character.currentPoints));
+                setCurrentPointsColor();
+                super.onDrawerStateChanged(newState);
+            }
+        };
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
@@ -156,17 +170,8 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void setCurrentPointsColor(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if(character.currentPoints <= character.maxPoints)
-                currentPoints.setTextColor(getResources()
-                        .getColor(R.color.have_points, getTheme()));
-            else currentPoints.setTextColor(getResources()
-                    .getColor(R.color.not_have_points, getTheme()));
-        }
-        else {
-            if(character.currentPoints <= character.maxPoints)
-                currentPoints.setTextColor(getResources().getColor(R.color.have_points));
-            else currentPoints.setTextColor(getResources().getColor(R.color.not_have_points));
-        }
+        if(character.currentPoints <= character.maxPoints)
+            currentPoints.setTextColor(DeprecatedHelper.getColor(this, R.color.have_points));
+        else currentPoints.setTextColor(DeprecatedHelper.getColor(this, R.color.not_have_points));
     }
 }
