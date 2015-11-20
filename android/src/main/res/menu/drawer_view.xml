@@ -1,9 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_params_fragment"
-            android:title="@string/character_params"
-            />
+        <item android:id="@+id/nav_params_fragment"
+            android:title="@string/character_params" />
+
+        <item android:id="@+id/nav_advantages_fragment"
+            android:title="@string/advantages" />
     </group>
 </menu>
