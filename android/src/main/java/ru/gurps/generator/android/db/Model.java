@@ -10,6 +10,8 @@ import java.lang.annotation.Target;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static java.lang.annotation.ElementType.FIELD;
 
@@ -38,9 +40,16 @@ public class Model extends DatabaseHelper {
     public ArrayList all() {
         ArrayList list = new ArrayList();
         Cursor cursor = db().rawQuery("SELECT * FROM " + table, null);
-        while (cursor.moveToNext()) {
-            list.add(setModel(cursor));
-        }
+        while (cursor.moveToNext()) list.add(setModel(cursor));
+        return list;
+    }
+
+    public ArrayList where(String column, Object value) {
+        ArrayList list = new ArrayList();
+        Cursor cursor = db().rawQuery("SELECT * FROM " + table + " WHERE " + column + "='" + value
+                        + "'", null);
+
+        while (cursor.moveToNext()) list.add(setModel(cursor));
         return list;
     }
 
@@ -54,9 +63,26 @@ public class Model extends DatabaseHelper {
         return true;
     }
 
-    public boolean update_single(String key, Object value){
+    public boolean update_single(String key, Object value) {
         db().execSQL("UPDATE " + table + " SET " + key + "='" + value + "' WHERE _id=" + id());
         return true;
+    }
+
+    public Model find_by(HashMap<String, Object> paramsHash) {
+        String params = "";
+        String query;
+        if (paramsHash.isEmpty()) query = "SELECT * FROM " + table;
+        else {
+            for (Map.Entry<String, Object> parametr : paramsHash.entrySet())
+                params += parametr.getKey() + "='" + parametr.getValue() + "' and ";
+
+            params = params.substring(0, params.length() - 5);
+            query = "SELECT * FROM " + table + " WHERE " + params;
+        }
+
+        Cursor cursor = db().rawQuery(query, null);
+        if(cursor.moveToFirst()) return setModel(cursor);
+        else return this;
     }
 
     private ContentValues cv() {
@@ -69,8 +95,9 @@ public class Model extends DatabaseHelper {
                     cv.put(field.getName(), (String) field.get(this));
                 else if (Integer.class.isAssignableFrom(field.getType())) {
                     cv.put(field.getName(), (Integer) field.get(this));
-                }
-                else if (Double.class.isAssignableFrom(field.getType()))
+                } else if (Long.class.isAssignableFrom(field.getType())) {
+                    cv.put(field.getName(), (Long) field.get(this));
+                } else if (Double.class.isAssignableFrom(field.getType()))
                     cv.put(field.getName(), (Double) field.get(this));
                 else if (Boolean.class.isAssignableFrom(field.getType()))
                     cv.put(field.getName(), (Boolean) field.get(this));
