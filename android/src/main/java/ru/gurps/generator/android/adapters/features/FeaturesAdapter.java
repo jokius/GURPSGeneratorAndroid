@@ -1,4 +1,4 @@
-package ru.gurps.generator.android.adapters;
+package ru.gurps.generator.android.adapters.features;
 
 import android.content.Context;
 import android.view.LayoutInflater;

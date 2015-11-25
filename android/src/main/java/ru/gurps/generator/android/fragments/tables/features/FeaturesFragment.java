@@ -4,7 +4,7 @@ import android.support.v4.app.ListFragment;
 import android.support.v7.widget.Toolbar;
 
 import ru.gurps.generator.android.R;
-import ru.gurps.generator.android.adapters.FeaturesAdapter;
+import ru.gurps.generator.android.adapters.features.FeaturesAdapter;
 import ru.gurps.generator.android.models.rules.Feature;
 
 public class FeaturesFragment extends ListFragment {
