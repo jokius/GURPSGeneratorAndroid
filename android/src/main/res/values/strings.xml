@@ -56,5 +56,8 @@
     <string name="add">Добавить</string>
     <string name="add_and_full">Добавить и подробнее</string>
     <string name="full">Подробнее</string>
+    <string name="remove">Удалить</string>
+    <string name="level">Уровень</string>
+    <string name="one">1</string>
     <!-- Features end -->
 </resources>

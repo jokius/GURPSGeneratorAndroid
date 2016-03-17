@@ -6,19 +6,17 @@ import ru.gurps.generator.android.db.Model;
 
 public class CharactersAddon extends Model {
     public Long _id;
-    public Integer characterId;
-    public Integer featureId;
-    public Integer addonId;
-    public String cost;
-    public String level;
+    public Long characterId;
+    public Long featureId;
+    public Long addonId;
+    public Integer cost;
+    public Integer level;
 
     public CharactersAddon(Context context) {
         super(context);
     }
 
-
-    public CharactersAddon(Context context, Integer characterId, Integer featureId, Integer addonId,
-                           String cost, String level) {
+    public CharactersAddon(Context context, Long characterId, Long featureId, Long addonId, Integer cost, Integer level) {
         super(context);
         this.characterId = characterId;
         this.featureId = featureId;

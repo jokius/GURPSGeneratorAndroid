@@ -6,33 +6,35 @@ import ru.gurps.generator.android.db.Model;
 
 public class Addon extends Model {
     public Long _id;
-    public Integer featureId;
+    public Long featureId;
     public String name;
     public String nameEn;
-    public String cost;
-    @Ignore public Integer resultCost = 0;
+    public Integer cost;
     public String description;
     public Integer maxLevel;
-    @Ignore public String level = "1";
+    @Ignore public Integer level = 1;
     @Ignore public Boolean active = false;
 
     public Addon(Context context) {
         super(context);
     }
 
-    public Addon(Context context, Long _id, Integer featureId, String name, String nameEn,
-                 String cost, Integer resultCost, String description, Integer maxLevel,
-                 String level, Boolean active) {
+    public Addon(Context context, Long _id, Long featureId, String name, String nameEn,
+                 Integer cost, String description, Integer maxLevel,
+                 Integer level, Boolean active) {
         super(context);
         this._id = _id;
         this.featureId = featureId;
         this.name = name;
         this.nameEn = nameEn;
         this.cost = cost;
-        this.resultCost = resultCost;
         this.description = description;
         this.maxLevel = maxLevel;
         this.level = level;
         this.active = active;
+    }
+
+    public Integer getResultCost() {
+        return cost * level;
     }
 }

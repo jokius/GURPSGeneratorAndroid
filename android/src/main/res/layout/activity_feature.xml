@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="ru.gurps.generator.android.activities.rules.FeatureActivity">
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/add"
+        android:id="@+id/add"
+        android:layout_alignTop="@+id/levelLabel"
+        android:layout_alignBottom="@+id/levelLabel"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/remove"
+        android:id="@+id/remove"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentEnd="false"
+        android:visibility="gone"
+        android:layout_alignTop="@+id/add"
+        android:layout_alignRight="@+id/listView" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:id="@+id/listView"
+        android:visibility="visible"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/level"
+        android:id="@+id/levelLabel"
+        android:textSize="@dimen/string_font_size"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/featureType"
+        android:layout_marginLeft="45dp"
+        android:layout_alignTop="@+id/featureType" />
+
+    <EditText
+        android:layout_width="@dimen/params_cost_width"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/levelEdit"
+        android:layout_alignBottom="@+id/levelLabel"
+        android:layout_toRightOf="@+id/levelLabel"
+        android:layout_marginLeft="25dp"
+        android:layout_alignTop="@+id/levelLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/cost"
+        android:id="@+id/costLabel"
+        android:layout_alignBottom="@+id/levelEdit"
+        android:layout_toRightOf="@+id/levelLabel"
+        android:layout_toEndOf="@+id/levelEdit"
+        android:layout_marginLeft="180dp"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size" />
+
+    <EditText
+        android:layout_width="@dimen/params_cost_width"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/costEdit"
+        android:layout_marginLeft="25dp"
+        android:layout_alignBottom="@+id/costLabel"
+        android:layout_toRightOf="@+id/costLabel"
+        android:layout_toEndOf="@+id/costLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:id="@+id/featureType"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:layout_below="@+id/listView"
+        android:layout_marginTop="25dp" />
+
+    <TextView
+        android:layout_width="@dimen/params_cost_width"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/defaultCharacteristicCost"
+        android:id="@+id/levelString"
+        android:layout_alignTop="@+id/levelLabel"
+        android:layout_toRightOf="@+id/levelLabel"
+        android:layout_marginLeft="25dp"
+        android:gravity="center"
+        android:textSize="@dimen/string_font_size"
+        android:visibility="gone" />
+
+    <TextView
+        android:layout_width="@dimen/params_cost_width"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/defaultCharacteristicCost"
+        android:id="@+id/costString"
+        android:textSize="@dimen/string_font_size"
+        android:gravity="center"
+        android:layout_alignTop="@+id/costLabel"
+        android:layout_toRightOf="@+id/costLabel"
+        android:layout_marginLeft="25dp"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/featureType"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/description"
+            android:singleLine="false"
+            android:textSize="@dimen/string_font_size" />
+    </ScrollView>
+
+</RelativeLayout>

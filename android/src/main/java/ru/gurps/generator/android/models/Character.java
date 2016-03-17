@@ -5,6 +5,7 @@ import android.content.Context;
 import java.util.HashMap;
 
 import ru.gurps.generator.android.db.Model;
+import ru.gurps.generator.android.models.characters.CharactersAddon;
 import ru.gurps.generator.android.models.characters.CharactersFeature;
 
 public class Character extends Model {
@@ -52,5 +53,12 @@ public class Character extends Model {
         params.put("characterId", _id);
         params.put("featureId", featureId);
         return (CharactersFeature) new CharactersFeature(context).find_by(params);
+    }
+
+    public CharactersAddon findCharacterAddon(Context context, Long addonId){
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        params.put("characterId", _id);
+        params.put("addonId", addonId);
+        return (CharactersAddon) new CharactersAddon(context).find_by(params);
     }
 }
